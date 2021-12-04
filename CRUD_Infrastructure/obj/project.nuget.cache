@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jF+nnzTSJljmBcQznGNicOAhcwT3wM0oyZ9sOEOysyUSCLN+gThlK2PANtjyVGJN5w6K7pxibsQ4uqttsYprMA==",
+  "success": true,
+  "projectFilePath": "C:\\Eurofins\\CrudApi\\CRUD_API\\CRUD_Infrastructure\\CRUD_Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DESSEY\\.nuget\\packages\\netstandard.library.ref\\2.1.0\\netstandard.library.ref.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
