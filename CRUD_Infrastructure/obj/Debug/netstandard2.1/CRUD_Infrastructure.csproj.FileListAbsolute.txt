@@ -1,9 +1,0 @@
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\bin\Debug\netstandard2.1\CRUD_Infrastructure.deps.json
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\bin\Debug\netstandard2.1\CRUD_Infrastructure.dll
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\bin\Debug\netstandard2.1\CRUD_Infrastructure.pdb
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.csprojAssemblyReference.cache
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.AssemblyInfoInputs.cache
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.AssemblyInfo.cs
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.csproj.CoreCompileInputs.cache
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.dll
-C:\Eurofins\CrudApi\CRUD_API\CRUD_Infrastructure\obj\Debug\netstandard2.1\CRUD_Infrastructure.pdb
