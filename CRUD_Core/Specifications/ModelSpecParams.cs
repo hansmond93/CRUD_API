@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CRUD_Core.Specifications
 {
+    /// <summary>
+    /// Query parameters
+    /// </summary>
     public class ModelSpecParams
     {
         private const int MaxPageSize = 50;
@@ -20,6 +24,9 @@ namespace CRUD_Core.Specifications
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
+        /// <summary>
+        /// sort by the following 'idAsc', 'idDesc', 'titleAsc', 'titleDesc' 
+        /// </summary>
         public string Sort { get; set; }
 
         public bool? IsCompleted { get; set; }

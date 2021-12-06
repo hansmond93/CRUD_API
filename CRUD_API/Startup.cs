@@ -5,13 +5,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace CRUD_API
@@ -30,8 +34,22 @@ namespace CRUD_API
         {
             services.AddControllers();
 
+            services.AddDbContext<CrudAPIContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
             services.AddScoped<IModelService, ModelService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddSwaggerGen(c =>
+           {
+               c.SwaggerDoc("v1", new OpenApiInfo { Title = "CRUD API", Version = "v1" });
+
+               var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+               c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+               c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "CRUD_Core.xml"));
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +67,12 @@ namespace CRUD_API
 
             // no authorization
             //app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+           {
+               c.SwaggerEndpoint("/swagger/v1/swagger.json", "CRUD API v1");
+           });
 
             app.UseEndpoints(endpoints =>
             {

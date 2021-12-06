@@ -18,6 +18,7 @@ namespace CRUD_Infrastructure.Data.Config
             builder.Property(p => p.Description).HasMaxLength(1000);
 
             builder.Property(p => p.IsCompleted).IsRequired();
+            builder.ToTable("Models");
         }
     }
 }

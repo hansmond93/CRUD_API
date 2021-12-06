@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace CRUD_API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class ModelController : ControllerBase
     {
         private readonly IModelService _modelService;
@@ -21,6 +21,9 @@ namespace CRUD_API.Controllers
             _modelService = modelService;
         }
 
+        /// <summary>
+        /// Creates a Model Entity and returns the created model.
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<ModelToReturnDto>> CreateModel(ModelToCreateDto model)
         {
@@ -34,12 +37,16 @@ namespace CRUD_API.Controllers
 
             var created = await _modelService.CreateModelAsync(modelToCreate);
 
-            //can return modelToREturnDto here but it is the same properties with Model entity
+            //can return modelToREturnDto here but since it is the same properties with Model entity
+            //it's fine to return the model entity in this case
             if (created == null) return BadRequest(new { Message = "Problem creating model" });
 
             return Ok(created);
         }
 
+        /// <summary>
+        /// Gets all Model Entities
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<Model>>> GetAllModels()
         {
@@ -48,6 +55,9 @@ namespace CRUD_API.Controllers
             return Ok(models);
         }
 
+        /// <summary>
+        /// Gets all Model Entities with different parameters/ filters/ sorting / pagination
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<Pagination<IReadOnlyList<Model>>>> GetModels([FromQuery]ModelSpecParams param)
         {
@@ -62,6 +72,9 @@ namespace CRUD_API.Controllers
             return Ok(new Pagination<Model>(param.PageIndex, param.PageSize, totalItems, models));
         }
 
+        /// <summary>
+        /// updates a single Model entity by Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<ActionResult<Model>> UpdateModel(ModelToCreateDto model, int id)
         {
@@ -80,6 +93,9 @@ namespace CRUD_API.Controllers
 
         }
 
+        /// <summary>
+        /// Deletes a single Model entity by Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteModel(int id)
         {
